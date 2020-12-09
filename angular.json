@@ -123,6 +123,11 @@
           }
         }
       }
-    }},
-  "defaultProject": "bookmonkey-client"
+    }
+  },
+  "defaultProject": "bookmonkey-client",
+  "cli": {
+    "analytics": false,
+    "packageManager": "npm"
+  }
 }
