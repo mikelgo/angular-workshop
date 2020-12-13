@@ -1,0 +1,12 @@
+<h2>Edit</h2>
+
+<form *ngIf="book" #form="ngForm" (ngSubmit)="save()">
+  <label class="form-field">
+    <span>Title</span>
+    <input [(ngModel)]="book.title" name="title" />
+  </label>
+
+  <div class="form-actions">
+    <button type="submit">Save</button>
+  </div>
+</form>
