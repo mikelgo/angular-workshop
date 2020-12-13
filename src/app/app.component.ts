@@ -7,6 +7,7 @@ import { Book } from './book';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  bookSearchTerm = '';
   books: Book[] = [
     {
       title: 'How to win friends',
@@ -32,5 +33,9 @@ export class AppComponent {
   goToBookDetails(book: Book) {
     console.log('Navigate to book details, soon ...');
     console.table(book);
+  }
+
+  updateBookSearchTerm(input: Event) {
+    this.bookSearchTerm = (input.target as HTMLInputElement).value;
   }
 }
