@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookEditComponent } from './book-edit/book-edit.component';
 import { BookFilterPipe } from './book-filter/book-filter.pipe';
+import { BookNewComponent } from './book-new/book-new.component';
 import { BookRoutingModule } from './book-routing.module';
 import { BookComponent } from './book.component';
-import { BookEditComponent } from './book-edit/book-edit.component';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,10 @@ import { BookEditComponent } from './book-edit/book-edit.component';
     BookCardComponent,
     BookFilterPipe,
     BookDetailComponent,
-    BookEditComponent
+    BookEditComponent,
+    BookNewComponent
   ],
-  imports: [CommonModule, FormsModule, BookRoutingModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, BookRoutingModule],
   exports: [BookComponent]
 })
 export class BookModule {}
