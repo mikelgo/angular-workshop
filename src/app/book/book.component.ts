@@ -9,10 +9,12 @@ import { BookApiService } from './book-api.service';
 })
 export class BookComponent {
   bookSearchTerm = '';
-  books: Book[];
+  books: Book[] = [];
 
   constructor(private bookApi: BookApiService) {
-    this.books = this.bookApi.getAll();
+    this.bookApi
+      .getAll()
+      .subscribe(booksFromApi => (this.books = booksFromApi));
   }
 
   goToBookDetails(book: Book) {
