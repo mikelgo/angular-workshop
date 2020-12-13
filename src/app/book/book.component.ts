@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Book } from './book';
 import { BookApiService } from './book-api.service';
 
@@ -8,21 +8,12 @@ import { BookApiService } from './book-api.service';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss']
 })
-export class BookComponent implements OnInit, OnDestroy {
+export class BookComponent {
   bookSearchTerm = '';
-  books: Book[] = [];
-  bookApiSubscription = Subscription.EMPTY;
+  books$: Observable<Book[]>;
 
-  constructor(private bookApi: BookApiService) {}
-
-  ngOnInit(): void {
-    this.bookApiSubscription = this.bookApi
-      .getAll()
-      .subscribe(booksFromApi => (this.books = booksFromApi));
-  }
-
-  ngOnDestroy(): void {
-    this.bookApiSubscription.unsubscribe();
+  constructor(private bookApi: BookApiService) {
+    this.books$ = this.bookApi.getAll();
   }
 
   goToBookDetails(book: Book) {
