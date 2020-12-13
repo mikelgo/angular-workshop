@@ -16,4 +16,8 @@ export class BookApiService {
   getByIsbn(isbn: string): Observable<Book> {
     return this.http.get<Book>(`${this.endpoint}/books/${isbn}`);
   }
+
+  save(book: Book): Observable<Book> {
+    return this.http.put<Book>(`${this.endpoint}/books/${book.isbn}`, book);
+  }
 }
