@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Book } from '../book';
 import { BookNa } from '../book-na';
 
@@ -9,6 +9,7 @@ import { BookNa } from '../book-na';
 })
 export class BookCardComponent {
   @Input() content: Book = new BookNa();
+  @Output() detailClick = new EventEmitter<Book>();
 
   customStyle = { color: '#064D9E', fontWeight: 600 };
 
@@ -17,5 +18,7 @@ export class BookCardComponent {
     click.preventDefault();
 
     console.log(`The book "${this.content.title}" has been clicked.`);
+
+    this.detailClick.emit(this.content);
   }
 }
