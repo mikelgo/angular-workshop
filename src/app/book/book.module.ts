@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookFilterPipe } from './book-filter/book-filter.pipe';
+import { BookRoutingModule } from './book-routing.module';
 import { BookComponent } from './book.component';
 
 @NgModule({
@@ -12,7 +13,7 @@ import { BookComponent } from './book.component';
     BookFilterPipe,
     BookDetailComponent
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, BookRoutingModule],
   exports: [BookComponent]
 })
 export class BookModule {}

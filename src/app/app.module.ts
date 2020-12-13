@@ -4,11 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BookModule } from './book/book.module';
 
 @NgModule({
   declarations: [AppComponent, AboutComponent],
-  imports: [BrowserModule, HttpClientModule, BookModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })
