@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Book } from '../book';
+import { BookNa } from '../book-na';
 
 @Component({
   selector: 'app-book-card',
@@ -6,8 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./book-card.component.scss']
 })
 export class BookCardComponent {
-  // TODO: Replace any with proper type since can it cause critical runtime errors.
-  @Input() content: any;
+  @Input() content: Book = new BookNa();
 
   customStyle = { color: '#064D9E', fontWeight: 600 };
 }
