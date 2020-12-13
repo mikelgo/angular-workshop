@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Book } from './book';
 import { BookApiService } from './book-api.service';
@@ -12,13 +13,12 @@ export class BookComponent {
   bookSearchTerm = '';
   books$: Observable<Book[]>;
 
-  constructor(private bookApi: BookApiService) {
+  constructor(private router: Router, private bookApi: BookApiService) {
     this.books$ = this.bookApi.getAll();
   }
 
   goToBookDetails(book: Book) {
-    console.log('Navigate to book details, soon ...');
-    console.table(book);
+    this.router.navigate(['books', 'details', book.isbn]);
   }
 
   updateBookSearchTerm(input: Event) {
