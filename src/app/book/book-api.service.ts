@@ -5,23 +5,23 @@ import { Book } from './book';
 
 @Injectable({ providedIn: 'root' })
 export class BookApiService {
-  private endpoint = 'http://localhost:4730';
+  private endpoint = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 
   create(book: Book): Observable<Book> {
-    return this.http.post<Book>(`${this.endpoint}/books/`, book);
+    return this.http.post<Book>(`${this.endpoint}/book/`, book);
   }
 
   getAll(): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.endpoint}/books`);
+    return this.http.get<Book[]>(`${this.endpoint}/book`);
   }
 
   getByIsbn(isbn: string): Observable<Book> {
-    return this.http.get<Book>(`${this.endpoint}/books/${isbn}`);
+    return this.http.get<Book>(`${this.endpoint}/book/${isbn}`);
   }
 
   save(book: Book): Observable<Book> {
-    return this.http.put<Book>(`${this.endpoint}/books/${book.isbn}`, book);
+    return this.http.put<Book>(`${this.endpoint}/book/${book.isbn}`, book);
   }
 }
