@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Book } from '../book';
 
-@Pipe({ name: 'bookFilter' })
+@Pipe({ name: 'bookFilter', standalone: true })
 export class BookFilterPipe implements PipeTransform {
   /**
    * A note on defensive design

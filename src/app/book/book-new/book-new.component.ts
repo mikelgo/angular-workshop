@@ -1,10 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnDestroy } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { BookApiService } from '../book-api.service';
 
 @Component({
   selector: 'app-book-new',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './book-new.component.html',
   styleUrls: ['./book-new.component.scss']
 })
@@ -16,7 +19,7 @@ export class BookNewComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.bookApiSubscription.unsubscribe();
-    this.newForm.controls
+    this.newForm.controls;
   }
 
   create(): void {
@@ -34,6 +37,6 @@ export class BookNewComponent implements OnDestroy {
       cover: [''],
       author: [''],
       abstract: ['']
-    }, );
+    });
   }
 }

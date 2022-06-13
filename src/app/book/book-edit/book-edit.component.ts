@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -8,6 +10,8 @@ import { BookNa } from '../book-na';
 
 @Component({
   selector: 'app-book-edit',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './book-edit.component.html',
   styleUrls: ['./book-edit.component.scss']
 })

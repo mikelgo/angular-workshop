@@ -1,7 +1,8 @@
 import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appBookEmphasize]'
+  selector: '[appBookEmphasize]',
+  standalone: true
 })
 export class BookEmphasizeDirective {
   constructor(
