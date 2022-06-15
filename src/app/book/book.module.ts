@@ -8,6 +8,7 @@ import { BookFilterPipe } from './book-filter/book-filter.pipe';
 import { BookNewComponent } from './book-new/book-new.component';
 import { BookRoutingModule } from './book-routing.module';
 import { BookComponent } from './book.component';
+import { BookEmphasizeDirective } from './book-emphasize.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BookComponent } from './book.component';
     BookFilterPipe,
     BookDetailComponent,
     BookEditComponent,
-    BookNewComponent
+    BookNewComponent,
+    BookEmphasizeDirective
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, BookRoutingModule],
   exports: [BookComponent]
