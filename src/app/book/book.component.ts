@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Book } from './book';
 import { BookApiService } from './book-api.service';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookFilterPipe } from './book-filter/book-filter.pipe';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-book',
@@ -16,10 +17,10 @@ import { BookFilterPipe } from './book-filter/book-filter.pipe';
 })
 export class BookComponent {
   bookSearchTerm = '';
-  books$: Observable<Book[]>;
+  books: Signal<Book[] | undefined>;
 
   constructor(private router: Router, private bookApi: BookApiService) {
-    this.books$ = this.bookApi.getAll();
+    this.books = toSignal(this.bookApi.getAll());
   }
 
   goToBookDetails(book: Book) {
