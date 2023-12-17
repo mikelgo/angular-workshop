@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "bookmonkey-client:build"
+            "buildTarget": "bookmonkey-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bookmonkey-client:build:production"
+              "buildTarget": "bookmonkey-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bookmonkey-client:build"
+            "buildTarget": "bookmonkey-client:build"
           }
         },
         "test": {
